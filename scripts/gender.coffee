@@ -24,12 +24,12 @@ module.exports = (robot) ->
     if calcNeeded
       gender = {
         calculatedAt: new Date(),
-        malePercentage: parseInt(Math.random() * 100)
+        malePercentage: Math.random() * 100
       }
 
       robot.brain.set('gender', gender)
 
-    male = gender.malePercentage
+    male = parseInt(gender.malePercentage)
     female = 100 - male
 
     msg.send("I'm feeling #{male}%/#{female}% male/female today.")
