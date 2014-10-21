@@ -24,7 +24,7 @@ module.exports = (robot) ->
     if calcNeeded
       gender = {
         calculatedAt: new Date(),
-        malePercentage: Math.random() * 100
+        malePercentage: parseInt(Math.random() * 100)
       }
 
       robot.brain.set('gender', gender)
