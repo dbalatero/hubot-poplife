@@ -32,4 +32,10 @@ module.exports = (robot) ->
     male = parseInt(gender.malePercentage)
     female = 100 - male
 
-    msg.send("I'm feeling #{male}%/#{female}% male/female today.")
+    rand = Math.random()
+    feeling = if rand < 0.5 # THIS COULD OBVIOUSLY BE BETTER
+      "#{male}%/#{female}% male/female"
+    else
+      "#{female}%/#{male}% female/male"
+
+    msg.send("I'm feeling #{feeling} today.")
