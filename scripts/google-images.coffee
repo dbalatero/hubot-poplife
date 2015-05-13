@@ -30,7 +30,7 @@ module.exports = (robot) ->
 imageMe = (msg, query, animated, faces, cb) ->
   cb = animated if typeof animated == 'function'
   cb = faces if typeof faces == 'function'
-  safeSearchMode  = if ~msg.room.indexOf("butts") then 'off' else 'active'
+  safeSearchMode  = if ~msg.message.room.indexOf("butts") then 'off' else 'active'
   q = v: '1.0', rsz: '8', q: query, safe: safeSearchMode
   q.imgtype = 'animated' if typeof animated is 'boolean' and animated is true
   q.imgtype = 'face' if typeof faces is 'boolean' and faces is true
