@@ -8,6 +8,11 @@
 #   hubot mustache me <query> - Searches Google Images for the specified query and mustaches it.
 
 module.exports = (robot) ->
+  robot.respond /butt bomb/i, (msg) ->
+    for i in [0..9]
+      imageMe msg, "butt", Math.round(Math.random()), (url) ->
+        msg.send url
+
   robot.respond /(image|img)( me)? (.*)/i, (msg) ->
     imageMe msg, msg.match[3], (url) ->
       msg.send url
