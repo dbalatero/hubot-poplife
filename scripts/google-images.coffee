@@ -7,10 +7,15 @@
 #   hubot mustache me <url> - Adds a mustache to the specified URL.
 #   hubot mustache me <query> - Searches Google Images for the specified query and mustaches it.
 
+adjs = ['other', 'new', 'good', 'high', 'old', 'great', 'big', 'American', 'small', 'large', 'national', 'different', 'long', 'little', 'important', 'political', 'bad', 'white', 'real', 'best', 'right', 'social', 'only', 'public', 'sure', 'low', 'early', 'able', 'human', 'local', 'late', 'hard', 'major', 'better', 'economic', 'strong', 'possible', 'whole', 'free', 'military', 'true', 'federal', 'international', 'full', 'special', 'easy', 'clear', 'recent', 'certain', 'personal', 'open', 'red', 'difficult', 'available', 'likely', 'short', 'single', 'medical', 'current', 'wrong', 'private', 'past', 'foreign', 'fine', 'common', 'poor', 'natural', 'significant', 'similar', 'hot', 'dead', 'central', 'happy', 'serious', 'ready', 'simple', 'left', 'physical', 'general', 'environmental', 'financial', 'blue', 'democratic', 'dark', 'various', 'entire', 'close', 'legal', 'religious', 'cold', 'final', 'main', 'green', 'nice', 'huge', 'popular', 'traditional', 'cultural' ]
+
+randomAdjective = ->
+  adjs[Math.round(Math.random() * (adjs.length - 1))]
+
 module.exports = (robot) ->
   robot.respond /butt bomb/i, (msg) ->
     for i in [0..9]
-      imageMe msg, "butt", Math.round(Math.random()), (url) ->
+      imageMe msg, "#{randomAdjective()} butt", Math.round(Math.random()), (url) ->
         msg.send url
 
   robot.respond /(image|img)( me)? (.*)/i, (msg) ->
