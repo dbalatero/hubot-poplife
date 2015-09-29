@@ -7,7 +7,8 @@
 module.exports = (robot) ->
   robot.respond /show chains/i, (msg) ->
     url = "https://api.chains.cc/v4/groups/fp2CrXQrKwqpCfk"
-    text = "```\nCurrent 日本語 chains\n#{url}\n\n"
+    text = "```\nCurrent 日本語 chains\n"
+    text += "https://chains.cc/groups/fp2CrXQrKwqpCfk\n\n"
 
     msg.http(url)
       .query(limit: 40)
