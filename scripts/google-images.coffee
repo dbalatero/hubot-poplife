@@ -16,7 +16,7 @@ randomAdjective = (list) ->
 
 module.exports = (robot) ->
   robot.respond /depardieu me/i, (msg) ->
-    imageMe msg, "#{randomAdjective(depardieuAdjs)} depardieu", false, true, (url) ->
+    imageMe msg, "#{randomAdjective(depardieuAdjs)} gerard depardieu", false, true, (url) ->
       msg.send url
 
   robot.respond /butt bomb/i, (msg) ->
