@@ -9,7 +9,7 @@
 #   hubot depardieu me
 
 buttAdjs = ['other', 'new', 'good', 'high', 'old', 'great', 'big', 'American', 'small', 'large', 'national', 'different', 'long', 'little', 'important', 'political', 'bad', 'white', 'real', 'best', 'right', 'social', 'only', 'public', 'sure', 'low', 'early', 'able', 'human', 'local', 'late', 'hard', 'major', 'better', 'economic', 'strong', 'possible', 'whole', 'free', 'military', 'true', 'federal', 'international', 'full', 'special', 'easy', 'clear', 'recent', 'certain', 'personal', 'open', 'red', 'difficult', 'available', 'likely', 'short', 'single', 'medical', 'current', 'wrong', 'private', 'past', 'foreign', 'fine', 'common', 'poor', 'natural', 'significant', 'similar', 'hot', 'dead', 'central', 'happy', 'serious', 'ready', 'simple', 'left', 'physical', 'general', 'environmental', 'financial', 'blue', 'democratic', 'dark', 'various', 'entire', 'close', 'legal', 'religious', 'cold', 'final', 'main', 'green', 'nice', 'huge', 'popular', 'traditional', 'cultural' ]
-depardieuAdjs = ['pants', 'tank top', 'wine', 'woman', 'womanizer', 'chef', 'knife', 'fat']
+depardieuAdjs = ['beach', 'pants', 'tank top', 'wine', 'woman', 'womanizer', 'chef', 'knife', 'fat', 'drunk', 'running', 'shirtless', 'van']
 
 randomAdjective = (list) ->
   list[Math.round(Math.random() * (list.length - 1))]
@@ -46,7 +46,7 @@ module.exports = (robot) ->
 imageMe = (msg, query, animated, faces, cb) ->
   cb = animated if typeof animated == 'function'
   cb = faces if typeof faces == 'function'
-  resultSize = if query == "butt" then '200' else '8'
+  resultSize = if query == "butt" or /gerard depardieu/i.test(query) then '200' else '8'
   q = v: '1.0', rsz: resultSize, q: query, safe: "active"
   q.imgtype = 'animated' if typeof animated is 'boolean' and animated is true
   q.imgtype = 'face' if typeof faces is 'boolean' and faces is true
