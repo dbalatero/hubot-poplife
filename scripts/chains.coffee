@@ -20,12 +20,10 @@ module.exports = (robot) ->
           chainMarks = chain.boolean_array.slice(0)
           chainLength = 0
 
-          firstItem = true # ignore the first 0 in an array
-                           # as someone might be ahead that day
+          # ignore the first zero
+          chainMarks.shift() if chainMarks[0] == 0
 
-          while (mark = chainMarks.shift() == 1 or firstItem)
-            firstItem = false
-            chainLength += 1 if mark == 1
+          chainLength += 1 while chainMarks.shift() == 1
 
           name = chain.user.realname.split(/\s+/)[0]
 
