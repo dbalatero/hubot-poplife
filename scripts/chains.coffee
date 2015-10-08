@@ -15,6 +15,7 @@ module.exports = (robot) ->
       .get() (err, res, body) ->
         result = JSON.parse(body)
         chains = result.braids
+        chainLength = 0
 
         for chain in chains
           chainMarks = chain.boolean_array.slice(0)
