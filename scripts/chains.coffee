@@ -32,11 +32,15 @@ module.exports = (robot) ->
 
           name = chain.user.realname.split(/\s+/)[0]
 
+          console.log "Chain length before text for #{name} #{chainLength}"
+
           text += "#{name} / #{chain.name} / streak: #{chainLength} days\n"
           text += "  "
 
           for [1..chainLength]
             text += "X"
+
+          console.log "Chain length after text for #{name} #{chainLength}"
 
           text += "\n\n"
 
