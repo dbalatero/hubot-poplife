@@ -33,13 +33,16 @@ module.exports = (robot) ->
           name = chain.user.realname.split(/\s+/)[0]
 
           text += "#{name} / #{chain.name} / streak: #{chainLength} days\n"
-          text += "  "
 
           if chainLength > 0
+            text += "  "
+
             for [1..chainLength]
               text += "X"
 
-          text += "\n\n"
+            text += "\n"
+
+          text += "\n"
 
         text = text.trim()
         text += "```"
