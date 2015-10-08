@@ -21,10 +21,14 @@ module.exports = (robot) ->
           chainMarks = chain.boolean_array.slice(0)
           chainLength = 0
 
-          # ignore the first zero
-          chainMarks.shift() if chainMarks[0] == 0
+          for index in [0...chainMarks.length]
+            # ignore the first zero
+            continue if chainMarks[index] == 0 && index == 0
 
-          chainLength += 1 while chainMarks.shift() == 1
+            if chainMarks[index] == 1
+              chainLength += 1
+            else
+              break
 
           name = chain.user.realname.split(/\s+/)[0]
 
